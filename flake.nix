@@ -36,6 +36,9 @@
             gcc
             xxd
             self.packages.${system}.pwndbg
+            (python3.withPackages (py: [
+              py.pwntools
+            ]))
           ]);
           # packages to be installed for all arch supported by host
           # (e.g. i686 and x86_64 on x86_64 machine)
