@@ -21,7 +21,7 @@ int explain_me(int x) {
     // ecx := explain_me(b-2);
     a = c + explain_me(b - 2);
   } else { // b < 2
-    if (b == 1) {
+    if (b != 1) {
       a = 0;
     } else {
       a = 1;
