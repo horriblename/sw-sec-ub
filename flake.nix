@@ -35,6 +35,8 @@
             gdb
             gcc
             xxd
+            nasm
+            cutter
             self.packages.${system}.pwndbg
             (python3.withPackages (py: [
               py.pwntools
