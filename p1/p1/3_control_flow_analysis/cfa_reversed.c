@@ -11,9 +11,24 @@
 #include <string.h>
 #include <unistd.h>
 
-// TODO: re-implement according to the binary `cfa`
-void explain_me() {
-  // TODO:
+// Fibonacci sequence
+// assuming 32-bit int
+int explain_me(int x) {
+  int a, b, c, d;
+  b = x;
+  if (b >= 2) {
+    c = explain_me(b - 1);
+    // ecx := explain_me(b-2);
+    a = c + explain_me(b - 2);
+  } else { // b < 2
+    if (b == 1) {
+      a = 0;
+    } else {
+      a = 1;
+    }
+  }
+
+  return a;
 }
 
 int main(int argc, char *argv[]) {
