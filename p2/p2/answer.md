@@ -18,3 +18,16 @@
 1. In `vuln()`, the `read()` size is 32 bytes more than `sizeof(buf)`. Entering
    a normal line < 128 bytes (for the `read()` in main()), then an input of more
    than 32 bytes causes a buffer overflow.
+
+# Aufgabe 4
+
+1. In `real_main()`, `cmd` has 24 bytes, only the first byte used for
+   determining the command, so we get 23 bytes where we can write our shell
+   code. In `load_real()`, the `fgets()` size is 48 instead of the 32 bytes of
+   `buf`. In the actual asm, `buf` gets 40 bytes, so we have the final 8 bytes
+   to overwrite the return address to our first-stage shell code.
+
+2. in `real_main()`, our 23-byte buffer will contain code to:
+   - stack-allocate enough space for second sc
+   - read from stdin the second (assembled) sc, into our allocated space
+   - jump to second shell code
