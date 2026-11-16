@@ -12,3 +12,9 @@
    user-entered `length` <= the allocated size of buf. The `fgets` call can
    overflow the buffer. Inputting length > 96 bytes, and then any input >= 96
    bytes will cause an overflow.
+
+# Aufgabe 3
+
+1. In `vuln()`, the `read()` size is 32 bytes more than `sizeof(buf)`. Entering
+   a normal line < 128 bytes (for the `read()` in main()), then an input of more
+   than 32 bytes causes a buffer overflow.
